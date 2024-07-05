@@ -1,0 +1,17 @@
+---
+- name: Install http package in all hosts
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install httpd Package
+      yum:
+        name: httpd
+        state: present
+      notify: start httpd # This will notify the handler
+
+  handlers:
+    - name: start httpd # This is the handler name
+      service:
+        name: httpd
+        state: started
+        enabled: yes # To start the service at boot time

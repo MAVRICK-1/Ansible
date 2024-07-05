@@ -1,0 +1,8 @@
+---
+- name: Install Packages using roles
+  hosts: localhost
+  become: yes
+  roles:
+    - httpd-role
+    - git-role
+    - docker-role

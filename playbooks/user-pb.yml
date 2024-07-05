@@ -1,0 +1,14 @@
+- name: Create a user named Diyasini
+  hosts: all
+  become: true
+  tasks:
+    - name: Add user Diyasini
+      user:
+        name: Diyasini
+        state: present
+
+    - name: Add user Diyasini to sudoers
+      user:
+        name: Diyasini
+        groups: wheel
+        append: yes

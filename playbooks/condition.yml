@@ -1,0 +1,15 @@
+---
+- name: Install based on OS
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install tree Package
+      yum:
+        name: tree
+        state: present
+      when: ansible_os_family == "RedHat" # ansible_os_family is a fact that gives the OS family
+    - name: Install tree Package
+      apt:
+        name: tree
+        state: present
+      when: ansible_os_family == "Debian"

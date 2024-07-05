@@ -1,0 +1,14 @@
+---
+- name: Example of loops in Ansible
+  hosts: all
+  become: yes # To run as root user
+  vars:
+    packages:
+      - httpd
+      - tree
+  tasks:
+    - name: Install any Package # This is the task name
+      yum:
+        name: "{{ item }}" # This will install any package
+        state: present
+      loop: "{{ packages }}" # This is the loop

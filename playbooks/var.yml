@@ -1,0 +1,15 @@
+---
+- name: Variables # This is the name of the playbook
+  hosts: all
+  become: yes
+  vars: #optional
+    item: docker # This is the variable
+  tasks:
+    - name: Install any Package
+      yum:
+        name: "{{ item }}" # This will install any package
+        state: present
+
+#command to run the playbook is:
+#ansible-playbook var.yml --extra-vars "item=package_name"
+#This playbook will install any package in all the nodes

@@ -1,0 +1,19 @@
+---
+- name: Install Packages
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Install httpd Package
+      yum:
+        name: httpd
+        state: present
+      
+    - name: Install git Package
+      yum:
+        name: git
+        state: present
+
+    - name: Install docker Package
+      yum:
+        name: docker
+        state: present

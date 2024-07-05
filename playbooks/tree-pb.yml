@@ -1,0 +1,9 @@
+---
+- name: Install tree Package in all nodes
+  hosts: all
+  become: yes # To run as root user
+  tasks:
+    - name: Install tree Package
+      yum:
+        name: tree
+        state: present
